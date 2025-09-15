@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>YASK KIRANA STORES — Home</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --c1: #CDCBD6;
+      --c2: #A6A0AA;
+      --c3: #555356;
+      --c4: #5A1E20;
+      --c5: #330F0F;
+      --c6: #100E0F;
+    }
+    body { font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(180deg,var(--c1),var(--c2)); color:var(--c6); }
+    /* loader overlay */
+    #loader {
+      position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:var(--c6); z-index:60;
+      color: white; flex-direction:column; gap:.75rem;
+    }
+    .brand-glow { text-shadow: 0 6px 24px rgba(90,30,32,.7); }
+    /* floating cart icon style */
+    .cart-float { position: absolute; right: 1rem; top: 0.6rem; z-index:50; }
+    /* small utility */
+    .soft-card { background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.02)); border: 1px solid rgba(255,255,255,0.04); box-shadow: 0 6px 20px rgba(0,0,0,0.2); border-radius: 14px; }
+  </style>
+</head>
+<body class="min-h-screen relative">
+
+  <!-- LOADER (2 seconds) -->
+  <div id="loader">
+    <div style="width:96px; height:96px; border-radius:12px; display:flex;align-items:center;justify-content:center; background:var(--c4);" class="brand-glow">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none"><path d="M3 12h3l2 6 6-16 2 6h3" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="text-sm text-gray-200">YASK KIRANA STORES</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="w-full bg-gradient-to-b from-[var(--c5)] to-[var(--c6)] text-white p-4 md:px-8 relative">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-md flex items-center justify-center bg-[var(--c4)]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 3h2l1 7h13l2-6H6" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <div class="text-lg font-bold">YASK KIRANA STORES</div>
+          <div class="text-xs text-[var(--c2)]">Nagpur • Since 2025</div>
+        </div>
+      </a>
+
+      <!-- nav links -->
+      <div class="hidden md:flex items-center gap-6">
+        <a href="index.html" class="hover:underline">HOME</a>
+        <a href="daily.html" class="hover:underline">DAILY NEEDS</a>
+        <a href="special-offers.html" class="hover:underline">SPECIAL OFFERS</a>
+        <a href="about.html" class="hover:underline">ABOUT</a>
+      </div>
+
+      <!-- cart icon -->
+      <div class="relative">
+        <a href="cart.html" aria-label="Cart" class="cart-float">
+          <div class="w-10 h-10 rounded-md flex items-center justify-center bg-[var(--c4)]">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 6h14l-1.5 9h-11L4 4H2" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- hamburger - mobile -->
+      <button id="mobileBtn" class="md:hidden ml-4 text-white">
+        <svg width="26" height="26" viewBox="0 0 24 24"><path stroke="#fff" stroke-width="1.6" stroke-linecap="round" d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+
+    <!-- mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden px-6 pb-4">
+      <a href="index.html" class="block py-2">HOME</a>
+      <a href="daily.html" class="block py-2">DAILY NEEDS</a>
+      <a href="special-offers.html" class="block py-2">SPECIAL OFFERS</a>
+      <a href="about.html" class="block py-2">ABOUT</a>
+    </div>
+  </nav>
+
+  <!-- HERO / LANDING -->
+  <header class="max-w-6xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-center gap-8">
+    <div class="flex-1">
+      <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight" id="heroTitle" style="color:var(--c5)">Essentials delivered — <span style="color:var(--c3)">fast</span></h1>
+      <p class="mt-4 text-[var(--c3)] max-w-xl">YASK KIRANA STORES brings groceries & daily needs to your doorstep across Nagpur. Fresh, affordable and with irresistible offers.</p>
+
+      <div class="mt-6 flex gap-3">
+        <a href="daily.html" class="px-5 py-3 rounded-lg soft-card inline-block">Shop Daily Needs</a>
+        <a href="special-offers.html" class="px-5 py-3 rounded-lg bg-[var(--c4)] text-white inline-block">Special Offers</a>
+      </div>
+
+      <!-- small map + address -->
+      <div class="mt-8 soft-card p-4 flex flex-col md:flex-row gap-4 items-start">
+        <div class="w-full md:w-56 h-40 md:h-32 rounded overflow-hidden">
+          <!-- Google Maps embed centered at plus code -->
+          <iframe
+            width="100%" height="100%" frameborder="0" style="border:0"
+            src="https://www.google.com/maps?q=5X9J+C3X%2C%20Khadgaon%20Rd%2C%20Wadi%2C%20Nagpur%2C%20Maharashtra%20440021&output=embed"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div>
+          <div class="text-sm font-semibold">YASK KIRANA STORES</div>
+          <div class="text-xs text-[var(--c6)] mt-1">5X9J+C3X, Khadgaon Rd, Wadi, Nagpur, Maharashtra 440021</div>
+          <div class="text-xs text-[var(--c6)] mt-2">Phone: +91 98765 43210</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- animated poster -->
+    <div class="flex-1">
+      <div id="poster" class="rounded-2xl p-6 soft-card">
+        <div class="text-sm text-[var(--c6)]">Weekly spotlight</div>
+        <div class="mt-4">
+          <img src="https://images.unsplash.com/photo-1574955598898-d105479382e5?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="spotlight" class="w-full h-56 object-cover rounded-lg" id="spotImg">
+        </div>
+        <div class="mt-4 flex items-center justify-between">
+          <div>
+            <div class="text-lg font-semibold">Mega Fresh Veg Box</div>
+            <div class="text-xs text-[var(--c6)]">Includes seasonal veggies — limited stock</div>
+          </div>
+          <div class="text-xl font-bold">₹249</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- footer quick links -->
+  <footer class="mt-10 bg-[var(--c6)] text-white">
+    <div class="max-w-6xl mx-auto p-6 flex flex-col md:flex-row justify-between gap-6">
+      <div>
+        <div class="font-bold">YASK KIRANA STORES</div>
+        <div class="text-xs text-[var(--c2)] mt-2">5X9J+C3X, Khadgaon Rd, Wadi, Nagpur, Maharashtra 440021</div>
+        <div class="text-xs text-[var(--c2)] mt-1">Phone: +91 98765 43210</div>
+      </div>
+      <div class="text-sm text-[var(--c2)]">© 2025 YASK KIRANA STORES</div>
+    </div>
+  </footer>
+
+  <!-- scripts -->
+  <script>
+    // loader
+    window.addEventListener('load', ()=> {
+      setTimeout(()=> {
+        const l = document.getElementById('loader');
+        l.style.opacity = 0;
+        l.style.transition = 'opacity .4s ease';
+        setTimeout(()=> l.style.display='none', 450);
+        // intro GSAP animations
+        gsap.from("#heroTitle", {y: 40, opacity:0, duration:1, ease:"power3.out"});
+        gsap.from("#spotImg", {scale:0.95, opacity:0, duration:1.1, delay:.2});
+      }, 2000); // 2 seconds
+    });
+
+    // mobile menu toggle
+    document.getElementById('mobileBtn').addEventListener('click', ()=>{
+      const m = document.getElementById('mobileMenu');
+      m.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

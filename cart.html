@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Cart — YASK KIRANA STORES</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet"/>
+  <style>:root{--c1:#CDCBD6;--c2:#A6A0AA;--c3:#555356;--c4:#5A1E20;--c5:#330F0F;--c6:#100E0F} body{font-family:'Montserrat';background:linear-gradient(180deg,var(--c1),var(--c2));color:var(--c6)}</style>
+</head>
+<body>
+  <nav class="bg-[var(--c6)] text-white p-4">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="font-bold">YASK KIRANA STORES</a>
+      <div class="hidden md:flex gap-6">
+        <a href="index.html">HOME</a>
+        <a href="daily.html">DAILY NEEDS</a>
+        <a href="special-offers.html">SPECIAL OFFERS</a>
+        <a href="about.html">ABOUT</a>
+      </div>
+      <a href="cart.html" class="bg-[var(--c4)] px-3 py-2 rounded">Cart</a>
+    </div>
+  </nav>
+
+  <main class="max-w-6xl mx-auto p-6">
+    <h2 class="text-2xl font-bold mb-4">Your Cart</h2>
+
+    <div id="cartContainer" class="space-y-4">
+      <!-- cart items will appear here -->
+    </div>
+
+    <div class="mt-6 flex items-center justify-between">
+      <button id="clearBtn" class="px-4 py-2 rounded border">Clear Cart</button>
+      <div class="text-right">
+        <div class="text-sm text-[var(--c2)]">Total</div>
+        <div id="total" class="text-xl font-bold">₹0</div>
+        <div class="mt-3">
+          <form action="checkout.php" method="post" style="display:inline">
+            <button id="checkoutBtn" class="px-4 py-2 rounded bg-[var(--c4)] text-white">Proceed to Checkout</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function getCart(){ return JSON.parse(localStorage.getItem('yask_cart')||'{}'); }
+    function saveCart(c){ localStorage.setItem('yask_cart', JSON.stringify(c)); }
+
+    function renderCart(){
+      const container = document.getElementById('cartContainer');
+      container.innerHTML = '';
+      const cart = getCart();
+      const ids = Object.keys(cart);
+      if(ids.length===0){
+        container.innerHTML = '<div class="p-6 bg-white rounded text-[var(--c2)]">Your cart is empty.</div>';
+        document.getElementById('total').innerText = '₹0';
+        return;
+      }
+      let total = 0;
+      ids.forEach(id=>{
+        const item = cart[id];
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'flex items-center gap-4 bg-white p-4 rounded';
+        itemDiv.innerHTML = `
+          <img src="${item.img}" onerror="this.src='https://via.placeholder.com/80?text=${item.id}'" class="w-20 h-20 object-cover rounded">
+          <div class="flex-1">
+            <div class="font-semibold">${item.title}</div>
+            <div class="text-sm text-[var(--c2)]">₹${item.price} each</div>
+            <div class="mt-2 flex items-center gap-2">
+              <button class="qtyBtn px-2 py-1 border" data-id="${id}" data-op="dec">-</button>
+              <div class="px-3 py-1 border">${item.qty}</div>
+              <button class="qtyBtn px-2 py-1 border" data-id="${id}" data-op="inc">+</button>
+              <button class="delBtn ml-4" data-id="${id}" title="Remove">🗑️</button>
+            </div>
+          </div>
+          <div class="text-right font-bold">₹${item.qty * item.price}</div>
+        `;
+        container.appendChild(itemDiv);
+        total += item.qty * item.price;
+      });
+      document.getElementById('total').innerText = '₹' + total;
+      // attach handlers
+      document.querySelectorAll('.qtyBtn').forEach(b=>{
+        b.addEventListener('click', ()=>{
+          const id = b.dataset.id;
+          const op = b.dataset.op;
+          const cart = getCart();
+          if(!cart[id]) return;
+          if(op==='inc') cart[id].qty += 1;
+          else { cart[id].qty = Math.max(0, cart[id].qty - 1); if(cart[id].qty===0) delete cart[id]; }
+          saveCart(cart);
+          renderCart();
+        });
+      });
+      document.querySelectorAll('.delBtn').forEach(d=>{
+        d.addEventListener('click', ()=>{
+          const id = d.dataset.id;
+          const cart = getCart();
+          if(cart[id]) { delete cart[id]; saveCart(cart); renderCart(); }
+        });
+      });
+    }
+
+    // clear cart button
+    document.getElementById('clearBtn').addEventListener('click', ()=>{
+      if(confirm('Clear all items from cart?')) {
+        localStorage.removeItem('yask_cart');
+        renderCart();
+      }
+    });
+
+    // initial render
+    renderCart();
+  </script>
+</body>
+</html>
