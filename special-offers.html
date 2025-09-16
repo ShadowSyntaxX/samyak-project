@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Special Offers — YASK KIRANA STORES</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -10,12 +11,15 @@
     :root{--c1:#CDCBD6;--c2:#A6A0AA;--c3:#555356;--c4:#5A1E20;--c5:#330F0F;--c6:#100E0F}
     body{font-family:'Montserrat';background:linear-gradient(180deg,var(--c1),var(--c2));color:var(--c6)}
     .offer-card{min-width:220px; border-radius:12px; overflow:hidden; background:white}
+    /* ensure the carousel won't wrap and is horizontally aligned */
+    #carousel { display:flex; align-items:flex-start; }
+    #carouselWrap { overflow:hidden; }
   </style>
 </head>
 <body>
   <nav class="bg-[var(--c6)] text-white p-4">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <a href="index.html" class="font-bold">YASK KIRANA STORES</a>
+      <a href="index.html" class="font-bold">YASH KIRANA STORES</a>
       <div class="hidden md:flex gap-6">
         <a href="index.html">HOME</a>
         <a href="daily.html">DAILY NEEDS</a>
@@ -42,7 +46,7 @@
           </ul>
         </div>
         <div class="w-full md:w-80 h-44 rounded overflow-hidden">
-          <img src="images/offerPoster.jpg" onerror="this.src='https://via.placeholder.com/400x220?text=Offer+Poster'" class="w-full h-full object-cover rounded">
+          <img src="https://images.unsplash.com/photo-1607082350899-7e105aa886ae?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" onerror="this.src='https://via.placeholder.com/400x220?text=Offer+Poster'" class="w-full h-full object-cover rounded">
         </div>
       </div>
     </section>
@@ -59,62 +63,230 @@
 
       <div id="carouselWrap" class="overflow-hidden">
         <div id="carousel" class="flex gap-5 will-change-transform">
-          <!-- JS will inject 20 offer cards -->
-        </div>
-      </div>
+          
+          <!-- Card 1 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" onerror="this.src='https://via.placeholder.com/220x160?text=Basmati+Rice+5kg'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Basmati Rice 5kg</div>
+              <div class="text-sm text-[var(--c2)]">Limited stock</div>
+              <div class="mt-2 font-bold">₹549</div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://images.unsplash.com/photo-1662058595162-10e024b1a907?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" onerror="this.src='https://via.placeholder.com/220x160?text=Sunflower+Oil+1L'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Sunflower Oil 1L</div>
+              <div class="text-sm text-[var(--c2)]">Special price</div>
+              <div class="mt-2 font-bold">₹129</div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://images.unsplash.com/photo-1627735483792-233bf632619b?q=80&w=1185&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" onerror="this.src='https://via.placeholder.com/220x160?text=Wheat+Flour+10kg'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Wheat Flour 10kg</div>
+              <div class="text-sm text-[var(--c2)]">Discounted</div>
+              <div class="mt-2 font-bold">₹399</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://images.unsplash.com/photo-1673791031093-eb8eefa60083?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" onerror="this.src='https://via.placeholder.com/220x160?text=Sugar+5kg'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Sugar 5kg</div>
+              <div class="text-sm text-[var(--c2)]">Limited offer</div>
+              <div class="mt-2 font-bold">₹279</div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://media.istockphoto.com/id/466257422/photo/toor-dal-skinned-and-split-pigeon-pea.jpg?s=2048x2048&w=is&k=20&c=RNwyhZE5AGFntsJ_fTBBryB73jzH3xx-gAiwEXWhUP4=" onerror="this.src='https://via.placeholder.com/220x160?text=Toor+Dal+1kg'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Toor Dal 1kg</div>
+              <div class="text-sm text-[var(--c2)]">Flash deal</div>
+              <div class="mt-2 font-bold">₹149</div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://images.unsplash.com/photo-1642698817356-52d9d3c9d1fa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" onerror="this.src='https://via.placeholder.com/220x160?text=Tea+250g'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Tea 250g</div>
+              <div class="text-sm text-[var(--c2)]">Popular</div>
+              <div class="mt-2 font-bold">₹99</div>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://media.istockphoto.com/id/2194928335/photo/salt-on-wooden-chopping-board.jpg?s=2048x2048&w=is&k=20&c=V0bf-eQN2geZ3kPKRR8nvdWT-Ds4VcBJ3fv5dmbK0C4=" onerror="this.src='https://via.placeholder.com/220x160?text=Salt+1kg'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Salt 1kg</div>
+              <div class="text-sm text-[var(--c2)]">Household</div>
+              <div class="mt-2 font-bold">₹20</div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://images.unsplash.com/photo-1553301803-768cd4a59b9c?q=80&w=976&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" onerror="this.src='https://via.placeholder.com/220x160?text=Milk+Powder+1kg'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Milk Powder 1kg</div>
+              <div class="text-sm text-[var(--c2)]">Best seller</div>
+              <div class="mt-2 font-bold">₹449</div>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://media.istockphoto.com/id/95408407/photo/massor-dal-indian-raw-food.jpg?s=2048x2048&w=is&k=20&c=E2qKjmCy8ViWUDf2UtxT8uo6fXnTd4cys2c6nfxhyEM=" onerror="this.src='https://via.placeholder.com/220x160?text=Masoor+Dal+1kg'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Masoor Dal 1kg</div>
+              <div class="text-sm text-[var(--c2)]">Limited stock</div>
+              <div class="mt-2 font-bold">₹129</div>
+            </div>
+          </div>
+
+          <!-- Card 10 -->
+          <div class="offer-card p-3">
+            <div class="h-36 overflow-hidden rounded">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNOq3DjHcHhS67C8B7icv8yRagniF5W2OY6w&s" onerror="this.src='https://via.placeholder.com/220x160?text=Besan+1kg'" class="w-full h-full object-cover">
+            </div>
+            <div class="mt-2">
+              <div class="font-semibold">Besan 1kg</div>
+              <div class="text-sm text-[var(--c2)]">Special price</div>
+              <div class="mt-2 font-bold">₹89</div>
+            </div>
+          </div>
+
+        </div> <!-- end #carousel -->
+      </div> <!-- end #carouselWrap -->
     </section>
   </main>
 
   <script>
-    // create 20 offers
-    const offers = [];
-    for(let i=1;i<=20;i++){
-      offers.push({id:'o'+i, title:'Offer Item '+i, price: (Math.floor(Math.random()*500)+49), img:`images/offer${i}.jpg`});
-    }
-
-    const c = document.getElementById('carousel');
-    offers.forEach(o=>{
-      const card = document.createElement('div');
-      card.className = 'offer-card p-3';
-      card.style.width = '220px';
-      card.innerHTML = `
-        <div class="h-36 overflow-hidden rounded">
-          <img src="${o.img}" onerror="this.src='https://via.placeholder.com/220x160?text=Offer+${o.id}'" class="w-full h-full object-cover">
-        </div>
-        <div class="mt-2">
-          <div class="font-semibold">${o.title}</div>
-          <div class="text-sm text-[var(--c2)]">Limited stock</div>
-          <div class="mt-2 font-bold">₹${o.price}</div>
-        </div>
-      `;
-      c.appendChild(card);
-    });
-
-    // GSAP automatic horizontal loop
-    const wrap = document.getElementById('carouselWrap');
     const carousel = document.getElementById('carousel');
-    let pos = 0;
-    function animateLoop(){
-      gsap.to(carousel, { x: '-=220', duration: 2.5, ease: 'power1.inOut', onComplete: ()=>{
-        // move first child to end to create infinite effect
-        carousel.appendChild(carousel.children[0]);
-        carousel.style.transform = 'translateX(0)';
-        requestAnimationFrame(animateLoop);
-      }});
-    }
-    // start after small delay for smoothness
-    setTimeout(animateLoop, 700);
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+    let loopTween = null;
+    let running = true;
 
-    // prev / next buttons (manual)
-    document.getElementById('next').addEventListener('click', ()=> {
-      gsap.to(carousel, { x: '-=220', duration: 0.4, ease:'power1.inOut', onComplete: ()=> { carousel.appendChild(carousel.children[0]); carousel.style.transform='translateX(0)'; } });
+    // compute step = card width + gap (gap comes from computed style)
+    function getStep() {
+      const first = carousel.children[0];
+      if (!first) return 220;
+      const w = first.offsetWidth;
+      // read gap from computed style (returns like "20px")
+      const gapStr = getComputedStyle(carousel).gap || getComputedStyle(carousel).columnGap || '0px';
+      const gap = parseFloat(gapStr) || 0;
+      return Math.round(w + gap);
+    }
+
+    function startAutoLoop() {
+      // stop previous if running
+      if (loopTween) {
+        gsap.killTweensOf(carousel);
+        loopTween = null;
+      }
+      running = true;
+      const step = getStep();
+      // recursive step-by-step loop
+      (function stepLoop(){
+        if (!running) return;
+        loopTween = gsap.to(carousel, {
+          x: `-=${step}`,
+          duration: 2.5,
+          ease: 'power1.inOut',
+          onComplete() {
+            // move first element to the end, reset transform via GSAP (safe)
+            carousel.appendChild(carousel.children[0]);
+            gsap.set(carousel, { x: 0 });
+            // loop again
+            stepLoop();
+          }
+        });
+      })();
+    }
+
+    function stopAutoLoop() {
+      running = false;
+      if (loopTween) {
+        gsap.killTweensOf(carousel);
+        loopTween = null;
+      }
+    }
+
+    // buttons - kill current tween then perform a single shift
+    nextBtn.addEventListener('click', () => {
+      stopAutoLoop();
+      const step = getStep();
+      gsap.killTweensOf(carousel);
+      gsap.to(carousel, {
+        x: `-=${step}`,
+        duration: 0.4,
+        ease: 'power1.inOut',
+        onComplete() {
+          carousel.appendChild(carousel.children[0]);
+          gsap.set(carousel, { x: 0 });
+          // restart auto loop after short delay
+          setTimeout(startAutoLoop, 800);
+        }
+      });
     });
-    document.getElementById('prev').addEventListener('click', ()=> {
-      // move last to front then shift left then animate back
-      const last = carousel.children[carousel.children.length-1];
+
+    prevBtn.addEventListener('click', () => {
+      stopAutoLoop();
+      const step = getStep();
+      gsap.killTweensOf(carousel);
+      // move last to front and animate from -step to 0
+      const last = carousel.children[carousel.children.length - 1];
       carousel.insertBefore(last, carousel.children[0]);
-      gsap.fromTo(carousel, {x:'-220px'}, {x: '0px', duration:0.4, ease:'power1.inOut'});
+      // set immediate offset so it looks like we slid left, then animate to 0
+      gsap.set(carousel, { x: -step });
+      gsap.to(carousel, {
+        x: 0,
+        duration: 0.4,
+        ease: 'power1.inOut',
+        onComplete() {
+          setTimeout(startAutoLoop, 800);
+        }
+      });
     });
+
+    // recompute on resize to keep step accurate
+    window.addEventListener('resize', () => {
+      // restart loop so step recalculates properly
+      stopAutoLoop();
+      setTimeout(startAutoLoop, 300);
+    });
+
+    // start
+    setTimeout(startAutoLoop, 700);
   </script>
 </body>
 </html>
